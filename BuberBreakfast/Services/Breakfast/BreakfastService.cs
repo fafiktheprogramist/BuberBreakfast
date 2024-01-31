@@ -3,9 +3,13 @@ using BuberBreakfast.Models;
 namespace BuberBreakfast.Services.Breakfasts;
 
 public class BreakfastService : IBreakfastService {
-    private readonly Dictionary<Guid, Breakfast> _breakfast = new();
+    private readonly Dictionary<Guid, Breakfast> _breakfasts = new();
     public void CreateBreakfast(Breakfast breakfast){
 
-        _breakfast.Add(breakfast.Id, breakfast);
+        _breakfasts.Add(breakfast.Id, breakfast);
+    }
+
+    public Breakfast GetBreakfast(Guid id){
+        return _breakfasts[id];
     }
 }
